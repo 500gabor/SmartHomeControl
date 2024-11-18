@@ -11,6 +11,7 @@ setup(
     install_requires=[
         "setuptools==75.5.0",
         "pyserial==3.5",
+        "matplotlib==3.9.2"
     ],
     entry_points={
         "console_scripts": [
