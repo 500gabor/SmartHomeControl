@@ -6,10 +6,11 @@ setup(
     description="A package to control and read inputs for a CAN device.",
     author="Gabor Szell",
     author_email="500gabor@gmail.com",
-    url="https://github.com/yourusername/control_lights",  # Update with your repo
+    url="https://github.com/500gabor/control_lights",
     packages=find_packages(),
     install_requires=[
-        "pyserial",  # Add other dependencies if required
+        "setuptools==75.5.0",
+        "pyserial==3.5",
     ],
     entry_points={
         "console_scripts": [
