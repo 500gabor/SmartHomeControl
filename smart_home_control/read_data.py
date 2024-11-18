@@ -10,8 +10,8 @@ def parse_input_states(response):
     Parse input states from a CAN response message.
     """
     if len(response) < 7 or not response.startswith('t'):
-        print("Invalid response format.")
-        return
+        return False
+
 
     can_id = response[1:4]  # Extract CAN ID
     data = response[5:]     # Extract data payload
@@ -28,7 +28,7 @@ def parse_input_states(response):
         for i in range(8, 16):
             inputs[f"DI{i}"] = (byte1 >> (i - 8)) & 1  # Extract bit for DI8-DI15
 
-        print(f"Input States: {inputs}")
+        return inputs
 
 
 def read_input_states():
@@ -43,7 +43,7 @@ def read_input_states():
                 response = ser.read(100).decode('utf-8').strip()
                 if response:
                     print(f"Received from CAN: {response}")
-                    parse_input_states(response)
+                    return parse_input_states(response)
             except KeyboardInterrupt:
                 print("Stopped listening for input states.")
     except serial.SerialException as e:
