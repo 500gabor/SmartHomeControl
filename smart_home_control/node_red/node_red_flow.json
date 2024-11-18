@@ -1,0 +1,222 @@
+[
+    {
+        "id": "fb2aa5142566b7e5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b66ca05201b52c48",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "command": "control_devices t20220001",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Send t20220001",
+        "x": 840,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            [
+                "13f8607be99fc3ff"
+            ]
+        ]
+    },
+    {
+        "id": "2950eab604cb4601",
+        "type": "ui_button",
+        "z": "fb2aa5142566b7e5",
+        "name": "Trigger Garage Door",
+        "group": "2419f45a83b91fd5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Trigger Garage Door",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            [
+                "b66ca05201b52c48"
+            ]
+        ]
+    },
+    {
+        "id": "67283ecf20ef36ce",
+        "type": "ui_button",
+        "z": "fb2aa5142566b7e5",
+        "name": "Trigger Gate",
+        "group": "2419f45a83b91fd5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Trigger Gate",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "eef1e8c8cf1d0ae0"
+            ]
+        ]
+    },
+    {
+        "id": "f0f1f11051027593",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "command": "control_devices t20220000",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Turn off all outputs",
+        "x": 1250,
+        "y": 280,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "13f8607be99fc3ff",
+        "type": "delay",
+        "z": "fb2aa5142566b7e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1060,
+        "y": 280,
+        "wires": [
+            [
+                "f0f1f11051027593"
+            ]
+        ]
+    },
+    {
+        "id": "eef1e8c8cf1d0ae0",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "command": "control_devices t20220002",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Send t20220002",
+        "x": 840,
+        "y": 300,
+        "wires": [
+            [],
+            [],
+            [
+                "13f8607be99fc3ff"
+            ]
+        ]
+    },
+    {
+        "id": "848af8f63f677404",
+        "type": "ui_button",
+        "z": "fb2aa5142566b7e5",
+        "name": "View Home!",
+        "group": "2419f45a83b91fd5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Home Visualizer",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 570,
+        "y": 400,
+        "wires": [
+            [
+                "85d46a56fbed3bb2"
+            ]
+        ]
+    },
+    {
+        "id": "85d46a56fbed3bb2",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "command": "visualize_floorplan",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 850,
+        "y": 400,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2419f45a83b91fd5",
+        "type": "ui_group",
+        "name": "SmartHomeController",
+        "tab": "0f07eb20e195773e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0f07eb20e195773e",
+        "type": "ui_tab",
+        "name": "Studio_control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

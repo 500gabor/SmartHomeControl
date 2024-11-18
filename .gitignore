@@ -2,3 +2,4 @@
 build/
 SmartHomeControl.egg-info/
 dist/
+smart_home_control/__pycache__/
