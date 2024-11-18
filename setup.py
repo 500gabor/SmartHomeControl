@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="control_lights",
-    version="1.0.0",
+    name="SmartHomeControl",
+    version="1.2",
     description="A package to control and read inputs for a CAN device.",
     author="Gabor Szell",
     author_email="500gabor@gmail.com",
@@ -14,8 +14,8 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "control_lights=control_lights.control_lights:main",
-            "read_inputs=control_lights.read_inputs:read_input_states",
+            "control_devices=smart_home_control.control_devices:main",
+            "read_data=smart_home_control.read_data:read_input_states",
         ],
     },
     classifiers=[
