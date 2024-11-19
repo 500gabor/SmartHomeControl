@@ -2,15 +2,107 @@
     {
         "id": "fb2aa5142566b7e5",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "SmartHomeController",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
+        "id": "e23c65fc1273f5dc",
+        "type": "group",
+        "z": "fb2aa5142566b7e5",
+        "name": "TemperatureHTTP",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4e62f61be0b9b22a",
+            "21ed6b4dd4e5b24b",
+            "e80d214a7c47a90a",
+            "af057390ca2c1096"
+        ],
+        "x": 94,
+        "y": 19,
+        "w": 1192,
+        "h": 122
+    },
+    {
+        "id": "13659f966e9bd543",
+        "type": "group",
+        "z": "fb2aa5142566b7e5",
+        "name": "FloorPlaneVisualization",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "85d46a56fbed3bb2",
+            "848af8f63f677404"
+        ],
+        "x": 94,
+        "y": 451.5,
+        "w": 492,
+        "h": 97
+    },
+    {
+        "id": "25ea6a04dd670f89",
+        "type": "group",
+        "z": "fb2aa5142566b7e5",
+        "name": "OutputTriggers",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f0f1f11051027593",
+            "13f8607be99fc3ff",
+            "215bec0ebd462e20",
+            "9612a088d9bb00c5"
+        ],
+        "x": 88,
+        "y": 165.5,
+        "w": 958,
+        "h": 249
+    },
+    {
+        "id": "215bec0ebd462e20",
+        "type": "group",
+        "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
+        "name": "GarageDoor",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "b66ca05201b52c48",
+            "2950eab604cb4601"
+        ],
+        "x": 114,
+        "y": 191.5,
+        "w": 492,
+        "h": 97
+    },
+    {
+        "id": "9612a088d9bb00c5",
+        "type": "group",
+        "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
+        "name": "Gate",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "67283ecf20ef36ce",
+            "eef1e8c8cf1d0ae0"
+        ],
+        "x": 114,
+        "y": 291.5,
+        "w": 492,
+        "h": 97
+    },
+    {
         "id": "b66ca05201b52c48",
         "type": "exec",
         "z": "fb2aa5142566b7e5",
+        "g": "215bec0ebd462e20",
         "command": "control_devices t20220001",
         "addpay": "",
         "append": "",
@@ -19,8 +111,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Send t20220001",
-        "x": 840,
-        "y": 220,
+        "x": 500,
+        "y": 240,
         "wires": [
             [],
             [],
@@ -33,13 +125,14 @@
         "id": "2950eab604cb4601",
         "type": "ui_button",
         "z": "fb2aa5142566b7e5",
+        "g": "215bec0ebd462e20",
         "name": "Trigger Garage Door",
         "group": "2419f45a83b91fd5",
         "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Trigger Garage Door",
+        "label": "TriggerGarageDoor",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -49,8 +142,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 580,
-        "y": 220,
+        "x": 240,
+        "y": 240,
         "wires": [
             [
                 "b66ca05201b52c48"
@@ -61,13 +154,14 @@
         "id": "67283ecf20ef36ce",
         "type": "ui_button",
         "z": "fb2aa5142566b7e5",
+        "g": "9612a088d9bb00c5",
         "name": "Trigger Gate",
         "group": "2419f45a83b91fd5",
         "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "Trigger Gate",
+        "label": "TriggerGate",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -77,8 +171,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 550,
-        "y": 300,
+        "x": 210,
+        "y": 340,
         "wires": [
             [
                 "eef1e8c8cf1d0ae0"
@@ -89,6 +183,7 @@
         "id": "f0f1f11051027593",
         "type": "exec",
         "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
         "command": "control_devices t20220000",
         "addpay": "",
         "append": "",
@@ -96,9 +191,9 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "Turn off all outputs",
-        "x": 1250,
-        "y": 280,
+        "name": "DisableCanOutputs",
+        "x": 930,
+        "y": 300,
         "wires": [
             [],
             [],
@@ -109,9 +204,10 @@
         "id": "13f8607be99fc3ff",
         "type": "delay",
         "z": "fb2aa5142566b7e5",
-        "name": "",
+        "g": "25ea6a04dd670f89",
+        "name": "CanBusDelay",
         "pauseType": "delay",
-        "timeout": "2",
+        "timeout": "1",
         "timeoutUnits": "seconds",
         "rate": "1",
         "nbRateUnits": "1",
@@ -122,8 +218,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1060,
-        "y": 280,
+        "x": 720,
+        "y": 300,
         "wires": [
             [
                 "f0f1f11051027593"
@@ -134,6 +230,7 @@
         "id": "eef1e8c8cf1d0ae0",
         "type": "exec",
         "z": "fb2aa5142566b7e5",
+        "g": "9612a088d9bb00c5",
         "command": "control_devices t20220002",
         "addpay": "",
         "append": "",
@@ -142,8 +239,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Send t20220002",
-        "x": 840,
-        "y": 300,
+        "x": 500,
+        "y": 340,
         "wires": [
             [],
             [],
@@ -156,7 +253,8 @@
         "id": "848af8f63f677404",
         "type": "ui_button",
         "z": "fb2aa5142566b7e5",
-        "name": "View Home!",
+        "g": "13659f966e9bd543",
+        "name": "ViewHome!",
         "group": "2419f45a83b91fd5",
         "order": 1,
         "width": 0,
@@ -172,8 +270,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 570,
-        "y": 400,
+        "x": 190,
+        "y": 500,
         "wires": [
             [
                 "85d46a56fbed3bb2"
@@ -184,6 +282,7 @@
         "id": "85d46a56fbed3bb2",
         "type": "exec",
         "z": "fb2aa5142566b7e5",
+        "g": "13659f966e9bd543",
         "command": "visualize_floorplan",
         "addpay": "",
         "append": "",
@@ -192,12 +291,93 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 850,
-        "y": 400,
+        "x": 470,
+        "y": 500,
         "wires": [
             [],
             [],
             []
+        ]
+    },
+    {
+        "id": "4e62f61be0b9b22a",
+        "type": "ui_gauge",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "TemperatureGauge",
+        "group": "2419f45a83b91fd5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1170,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "21ed6b4dd4e5b24b",
+        "type": "http in",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "GetTemperatureData",
+        "url": "/temperature_in",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "e80d214a7c47a90a",
+                "af057390ca2c1096"
+            ]
+        ]
+    },
+    {
+        "id": "e80d214a7c47a90a",
+        "type": "http response",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "Temperature Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 250,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "af057390ca2c1096",
+        "type": "function",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "ProcessIncomingTemperatureData",
+        "func": "// Extract the 'payload' parameter from the query\nmsg.payload = parseInt(msg.req.query.payload, 10); // Convert to integer\n\n\n// Return the modified message\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [
+                "4e62f61be0b9b22a"
+            ]
         ]
     },
     {

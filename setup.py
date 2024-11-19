@@ -11,14 +11,15 @@ setup(
     install_requires=[
         "setuptools==75.5.0",
         "pyserial==3.5",
-        "matplotlib==3.9.2"
+        "matplotlib==3.9.2",
+        "requests==2.32.3"
     ],
     entry_points={
         "console_scripts": [
             "control_devices=smart_home_control.control_devices:main",
             "read_data=smart_home_control.read_data:read_input_states",
             "visualize_floorplan=smart_home_control.visualize_floorplan:visualize_floorplan",
-
+            "set_temp=smart_home_control.temperature_controller:set_temp"
         ],
     },
     classifiers=[
