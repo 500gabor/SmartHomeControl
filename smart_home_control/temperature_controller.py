@@ -1,5 +1,6 @@
 import requests
 import sys
+import random
 from urllib.parse import urlparse
 
 
@@ -23,8 +24,9 @@ def set_temp():
     url = f"http://{ip}//temperature_in"
 
     # Add the temperature as a query parameter
+    temperature = random.randint(-20, 60)
     params = {
-        "payload": "20"
+        "payload": str(temperature)
     }
 
     # Make the GET request
