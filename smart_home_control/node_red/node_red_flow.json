@@ -19,12 +19,14 @@
             "4e62f61be0b9b22a",
             "21ed6b4dd4e5b24b",
             "e80d214a7c47a90a",
-            "af057390ca2c1096"
+            "af057390ca2c1096",
+            "ed48622a88620d20",
+            "92ea6f2b822e9031"
         ],
-        "x": 94,
-        "y": 19,
-        "w": 1192,
-        "h": 122
+        "x": 74,
+        "y": 111.5,
+        "w": 1012,
+        "h": 189.5
     },
     {
         "id": "13659f966e9bd543",
@@ -38,8 +40,8 @@
             "85d46a56fbed3bb2",
             "848af8f63f677404"
         ],
-        "x": 94,
-        "y": 451.5,
+        "x": 74,
+        "y": 631.5,
         "w": 492,
         "h": 97
     },
@@ -57,8 +59,8 @@
             "215bec0ebd462e20",
             "9612a088d9bb00c5"
         ],
-        "x": 88,
-        "y": 165.5,
+        "x": 68,
+        "y": 345.5,
         "w": 958,
         "h": 249
     },
@@ -75,8 +77,8 @@
             "b66ca05201b52c48",
             "2950eab604cb4601"
         ],
-        "x": 114,
-        "y": 191.5,
+        "x": 94,
+        "y": 371.5,
         "w": 492,
         "h": 97
     },
@@ -93,8 +95,8 @@
             "67283ecf20ef36ce",
             "eef1e8c8cf1d0ae0"
         ],
-        "x": 114,
-        "y": 291.5,
+        "x": 94,
+        "y": 471.5,
         "w": 492,
         "h": 97
     },
@@ -111,8 +113,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Send t20220001",
-        "x": 500,
-        "y": 240,
+        "x": 480,
+        "y": 420,
         "wires": [
             [],
             [],
@@ -128,11 +130,11 @@
         "g": "215bec0ebd462e20",
         "name": "Trigger Garage Door",
         "group": "2419f45a83b91fd5",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "TriggerGarageDoor",
+        "label": "Trigger Garage Door",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -142,8 +144,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 240,
-        "y": 240,
+        "x": 220,
+        "y": 420,
         "wires": [
             [
                 "b66ca05201b52c48"
@@ -157,11 +159,11 @@
         "g": "9612a088d9bb00c5",
         "name": "Trigger Gate",
         "group": "2419f45a83b91fd5",
-        "order": 1,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
-        "label": "TriggerGate",
+        "label": "Trigger Gate",
         "tooltip": "",
         "color": "",
         "bgcolor": "",
@@ -171,8 +173,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 210,
-        "y": 340,
+        "x": 190,
+        "y": 520,
         "wires": [
             [
                 "eef1e8c8cf1d0ae0"
@@ -192,8 +194,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "DisableCanOutputs",
-        "x": 930,
-        "y": 300,
+        "x": 910,
+        "y": 480,
         "wires": [
             [],
             [],
@@ -218,8 +220,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 720,
-        "y": 300,
+        "x": 700,
+        "y": 480,
         "wires": [
             [
                 "f0f1f11051027593"
@@ -239,8 +241,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "Send t20220002",
-        "x": 500,
-        "y": 340,
+        "x": 480,
+        "y": 520,
         "wires": [
             [],
             [],
@@ -255,7 +257,7 @@
         "z": "fb2aa5142566b7e5",
         "g": "13659f966e9bd543",
         "name": "ViewHome!",
-        "group": "2419f45a83b91fd5",
+        "group": "37b3acf10c5f6642",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -270,8 +272,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 500,
+        "x": 170,
+        "y": 680,
         "wires": [
             [
                 "85d46a56fbed3bb2"
@@ -291,8 +293,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 470,
-        "y": 500,
+        "x": 450,
+        "y": 680,
         "wires": [
             [],
             [],
@@ -305,12 +307,12 @@
         "z": "fb2aa5142566b7e5",
         "g": "e23c65fc1273f5dc",
         "name": "TemperatureGauge",
-        "group": "2419f45a83b91fd5",
-        "order": 3,
+        "group": "2cbcb0af19b3f789",
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "gauge",
+        "title": "Current Temperature",
         "label": "units",
         "format": "{{value}}",
         "min": "-20",
@@ -324,8 +326,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 1170,
-        "y": 100,
+        "x": 970,
+        "y": 220,
         "wires": []
     },
     {
@@ -339,7 +341,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 220,
-        "y": 100,
+        "y": 220,
         "wires": [
             [
                 "e80d214a7c47a90a",
@@ -355,8 +357,8 @@
         "name": "Temperature Response",
         "statusCode": "",
         "headers": {},
-        "x": 250,
-        "y": 60,
+        "x": 230,
+        "y": 260,
         "wires": []
     },
     {
@@ -372,8 +374,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 100,
+        "x": 720,
+        "y": 220,
         "wires": [
             [
                 "4e62f61be0b9b22a"
@@ -381,9 +383,59 @@
         ]
     },
     {
+        "id": "ed48622a88620d20",
+        "type": "ui_button",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "Read Current Temperature",
+        "group": "2cbcb0af19b3f789",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Read Current Temperature",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "92ea6f2b822e9031"
+            ]
+        ]
+    },
+    {
+        "id": "92ea6f2b822e9031",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "command": "set_temp",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
         "id": "2419f45a83b91fd5",
         "type": "ui_group",
-        "name": "SmartHomeController",
+        "name": "TriggerButtons",
         "tab": "0f07eb20e195773e",
         "order": 1,
         "disp": true,
@@ -392,9 +444,31 @@
         "className": ""
     },
     {
+        "id": "37b3acf10c5f6642",
+        "type": "ui_group",
+        "name": "Home Visualization Controls",
+        "tab": "0f07eb20e195773e",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2cbcb0af19b3f789",
+        "type": "ui_group",
+        "name": "TemperatureTab",
+        "tab": "0f07eb20e195773e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "0f07eb20e195773e",
         "type": "ui_tab",
-        "name": "Studio_control",
+        "name": "POC: Smart Home Controls",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
