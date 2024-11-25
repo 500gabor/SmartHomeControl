@@ -21,12 +21,13 @@
             "e80d214a7c47a90a",
             "af057390ca2c1096",
             "ed48622a88620d20",
-            "92ea6f2b822e9031"
+            "92ea6f2b822e9031",
+            "e7f8aed9f8fa5d21"
         ],
         "x": 74,
-        "y": 111.5,
+        "y": 59,
         "w": 1012,
-        "h": 189.5
+        "h": 242
     },
     {
         "id": "13659f966e9bd543",
@@ -41,7 +42,7 @@
             "848af8f63f677404"
         ],
         "x": 74,
-        "y": 631.5,
+        "y": 751.5,
         "w": 492,
         "h": 97
     },
@@ -57,12 +58,15 @@
             "f0f1f11051027593",
             "13f8607be99fc3ff",
             "215bec0ebd462e20",
-            "9612a088d9bb00c5"
+            "9612a088d9bb00c5",
+            "c9a1ccbf6e62b66f",
+            "c8ee39d5162444f7",
+            "ad41a3ce0e1d07b6"
         ],
         "x": 68,
         "y": 345.5,
         "w": 958,
-        "h": 249
+        "h": 303
     },
     {
         "id": "215bec0ebd462e20",
@@ -130,7 +134,7 @@
         "g": "215bec0ebd462e20",
         "name": "Trigger Garage Door",
         "group": "2419f45a83b91fd5",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -159,7 +163,7 @@
         "g": "9612a088d9bb00c5",
         "name": "Trigger Gate",
         "group": "2419f45a83b91fd5",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -273,7 +277,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 170,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "85d46a56fbed3bb2"
@@ -294,7 +298,7 @@
         "oldrc": false,
         "name": "",
         "x": 450,
-        "y": 680,
+        "y": 800,
         "wires": [
             [],
             [],
@@ -430,6 +434,105 @@
             [],
             [],
             []
+        ]
+    },
+    {
+        "id": "c9a1ccbf6e62b66f",
+        "type": "ui_text_input",
+        "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
+        "name": "CanCommandTextBox",
+        "label": "Custom CAN Command Input",
+        "tooltip": "",
+        "group": "2419f45a83b91fd5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 200,
+        "y": 600,
+        "wires": [
+            [
+                "ad41a3ce0e1d07b6"
+            ]
+        ]
+    },
+    {
+        "id": "c8ee39d5162444f7",
+        "type": "exec",
+        "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Send Custom Command",
+        "x": 850,
+        "y": 600,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ad41a3ce0e1d07b6",
+        "type": "function",
+        "z": "fb2aa5142566b7e5",
+        "g": "25ea6a04dd670f89",
+        "name": "AddConsoleCommand",
+        "func": "msg.payload = \"control_devices \" + msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "c8ee39d5162444f7"
+            ]
+        ]
+    },
+    {
+        "id": "e7f8aed9f8fa5d21",
+        "type": "inject",
+        "z": "fb2aa5142566b7e5",
+        "g": "e23c65fc1273f5dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 100,
+        "wires": [
+            [
+                "92ea6f2b822e9031"
+            ]
         ]
     },
     {
